@@ -51,16 +51,30 @@ class LinkedList
    return current
   end
 
-  
+
   def at(index)
   	iterator = 0
   	current = @head
-  	while iterator < index
+  	while iterator < (index -1)
   	  iterator += 1
   	  current = current.next_node
   	end
   	current.value
   end
 
+
+  def pop
+  	previous = @head
+  	current = @head.next_node
+    while current.next_node != nil
+      previous = previous.next_node
+      current = current.next_node
+    end
+    current.value = nil
+    previous.next_node = nil
+    return self
+  end
+
+  
 end
 
